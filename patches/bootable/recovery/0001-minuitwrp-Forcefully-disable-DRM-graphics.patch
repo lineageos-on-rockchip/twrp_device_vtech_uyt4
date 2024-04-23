@@ -1,0 +1,37 @@
+From 959d8d4c87d0b517c111d6ef5bb5293781bc4902 Mon Sep 17 00:00:00 2001
+From: TBM <mateotrueba@gmail.com>
+Date: Tue, 23 Apr 2024 12:14:39 +0200
+Subject: [PATCH] minuitwrp: Forcefully disable DRM graphics
+
+* For whatever reason, our device fails to map the surface's
+  buffer and the recovery binary crashes causing TWRP not to
+  boot at all.
+
+* Since we don't really use DRM anyway, disable it and let
+  TWRP fallback to a working graphics implementation.
+
+Change-Id: I46e6f786872ab5d6e3f5a17d91ae18c2bd869df5
+---
+ minuitwrp/libminuitwrp_defaults.go | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/minuitwrp/libminuitwrp_defaults.go b/minuitwrp/libminuitwrp_defaults.go
+index 8c738c5..752253e 100644
+--- a/minuitwrp/libminuitwrp_defaults.go
++++ b/minuitwrp/libminuitwrp_defaults.go
+@@ -11,12 +11,6 @@ import (
+ func globalFlags(ctx android.BaseContext) []string {
+ 	var cflags []string
+ 
+-	matches, err := filepath.Glob("external/libdrm/Android.*")
+-	_ = matches
+-	if err == nil {
+-		cflags = append(cflags, "-DHAS_DRM")
+-	}
+-
+ 	var pixelFormat = strings.Replace(getMakeVars(ctx, "TARGET_RECOVERY_FORCE_PIXEL_FORMAT"), "\"", "", -1)
+ 
+ 	switch pixelFormat {
+-- 
+2.34.1
+
