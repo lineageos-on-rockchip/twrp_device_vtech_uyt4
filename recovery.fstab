@@ -1,0 +1,20 @@
+system        /system     ext4     ro      wait,slotselect,logical
+vendor        /vendor     ext4     ro      wait,slotselect,logical
+product       /product    ext4     ro      wait,slotselect,logical
+odm           /odm        ext4     ro      wait,slotselect,logical
+
+/dev/block/by-name/cache                 /cache               ext4             defaults                  defaults
+/dev/block/by-name/metadata              /metadata            ext4             defaults                  defaults
+/dev/block/by-name/userdata              /data                f2fs             defaults                  defaults
+/dev/block/by-name/misc                  /misc                emmc             defaults                  defaults
+/dev/block/by-name/uboot                 /uboot               emmc             defaults                  defaults
+/dev/block/by-name/boot                  /boot                emmc             defaults                  defaults
+/dev/block/by-name/recovery              /recovery            emmc             defaults                  defaults
+/dev/block/by-name/backup                /backup              emmc             defaults                  defaults
+/dev/block/by-name/trust                 /trust               emmc             defaults                  defaults
+/dev/block/by-name/frp                   /frp                 emmc             defaults                  defaults
+/dev/block/by-name/vbmeta                /vbmeta              emmc             defaults                  defaults
+/dev/block/by-name/dtbo                  /dtbo                emmc             defaults                  defaults
+
+/dev/block/platform/ff0f0000.dwmmc/by-name/user                  /sdcard              auto             defaults                  defaults
+/dev/block/mmcblk0p1                                             /external_sd         auto             defaults                  defaults
