@@ -1,2 +1,5 @@
+on fs
+    setprop ro.board.platform rk3326
+
 on boot
     start health-hal-2-1
