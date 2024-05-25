@@ -1,3 +1,5 @@
+![Press render of the LeapPad Academy](uty4-render.png)
+
 # TWRP Device Tree for the LeapPad® Academy (uyt4)
 The second-generation LeapPad Academy is an Android tablet developed and manufactured by VTech Holdings and marketed under the LeapFrog brand. It was quietly released in 2021 as a hardware revision of the previous-gen Epic, replacing the MediaTek MT8127 with a Rockchip RK3326.
 
